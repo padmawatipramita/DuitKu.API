@@ -1,0 +1,92 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\API\\Duitku_API\\Duitku_API.csproj": {}
+  },
+  "projects": {
+    "E:\\API\\Duitku_API\\Duitku_API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\API\\Duitku_API\\Duitku_API.csproj",
+        "projectName": "Duitku_API",
+        "projectPath": "E:\\API\\Duitku_API\\Duitku_API.csproj",
+        "packagesPath": "C:\\Users\\mital\\.nuget\\packages\\",
+        "outputPath": "E:\\API\\Duitku_API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "E:\\API\\Duitku_API\\NuGet.Config",
+          "C:\\Users\\mital\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "http://202.58.172.152/binus_ws_nuget-DevOPS/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Binus.WS.Pattern": {
+              "target": "Package",
+              "version": "[2.1.6, )"
+            },
+            "Binus.WS.Pattern.Entities": {
+              "target": "Package",
+              "version": "[1.5.4, )"
+            },
+            "Binus.WS.Pattern.Redis": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            },
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
