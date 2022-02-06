@@ -29,3 +29,4 @@ SELECT * FROM trTransaction
 
 SELECT GETDATE()
 
+SELECT * FROM MsUser

@@ -106,6 +106,12 @@ namespace DuitKu.API.Helper
             return 1;
         }
 
+        /*
+        Modified by Ariel Sefrian
+        Date: Minggu, 06/02/2022 - 22:41 WIB
+        Purpose: fix the getSpecificUser codes in _UserHelper
+        */
+
         public static List<SpecificUserDetail> GetSpecificUser(int? UserIDParam)
         {
             var returnValue = new List<SpecificUserDetail>();
@@ -115,31 +121,25 @@ namespace DuitKu.API.Helper
             try
             {
                 // get specific user
-                foreach (var dataUser in EntityHelper.Get<_UserModel>().ToList())
-                {
-                    var income = EntityHelper.Get<_TransactionModel>().Where(x =>
-                        x.UserID == dataUser.UserID && x.TransactionType == "Income").Select(x =>
-                        x.Balance).ToList().Sum();
+                var income = EntityHelper.Get<_TransactionModel>().Where(
+                    x => x.UserID == UserIDParam && x.TransactionType == "Income").Select(
+                    x => x.Balance).ToList().Sum();
 
-                    var expense = EntityHelper.Get<_TransactionModel>().Where(x =>
-                        x.UserID == dataUser.UserID && x.TransactionType == "Expense").Select(x =>
-                        x.Balance).ToList().Sum();
+                var expense = EntityHelper.Get<_TransactionModel>().Where(
+                    x => x.UserID == UserIDParam && x.TransactionType == "Expense").Select(
+                    x => x.Balance).ToList().Sum();
 
-                    SpecificUserDetail newSpecificUser = new SpecificUserDetail();
+                returnValue = (
+                   from um in userModel.Where(dataRow => dataRow.UserID == UserIDParam)
+                   select new SpecificUserDetail
+                   {
+                       UserName = um.UserName,
+                       UserEmail = um.UserEmail,
+                       UserBalance = (int)um.UserBalance,
+                       UserFinalBalance = (int)um.UserBalance + (income - expense),
+                   }).ToList();
 
-                    newSpecificUser.UserEmail = dataUser.UserEmail;
-                    newSpecificUser.UserName = dataUser.UserName;
-                    newSpecificUser.UserBalance = (int)dataUser.UserBalance;
-                    newSpecificUser.UserFinalBalance = (int)dataUser.UserBalance + (income - expense);
-
-                    returnValue.Add(newSpecificUser);
-                }
-
-                if (UserIDParam == null)
-                {
-                    throw new Exception("Parameter must be filled!");
-                }
-                else if (returnValue.Capacity.Equals(0))
+                if (returnValue.Capacity.Equals(0))
                 {
                     throw new Exception("Account not found!");
                 }

@@ -72,6 +72,12 @@ namespace Duitku_API.Services
         }
 
         // GET SPECIFIC USER
+        /*
+        Modified by Ariel Sefrian
+        Date: Minggu, 06/02/2022 - 22:41 WIB
+        Purpose: fix the getSpecificUser codes in _UserService
+        */
+
         [HttpGet]
         [Route("specific")]
         [Produces("application/json")]
@@ -86,14 +92,7 @@ namespace Duitku_API.Services
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Parameter must be filled!"))
-                {
-                    return StatusCode(400, new OutputBase(ex)
-                    {
-                        ResultCode = 400,
-                    });
-                }
-                else if (ex.Message.Contains("Account not found"))
+                if (ex.Message.Contains("Account not found!"))
                 {
                     return StatusCode(404, new OutputBase(ex)
                     {
