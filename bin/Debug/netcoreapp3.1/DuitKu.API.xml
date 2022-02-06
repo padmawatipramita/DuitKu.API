@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jenshin.Impack.API</name>
+    </assembly>
+    <members>
+        <member name="M:Jenshin.Impack.API.Services.ItemService.AddNewItem(Jenshin.Impack.API.Model.MsShopItem)">
+             <summary>
+             Add New Item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /item
+            
+             </remarks>
+             <returns>Success</returns>
+             <response code="200">Returns success if item is successfully added</response>
+             
+             SOAL NOMOR 3 - Add New Item
+        </member>
+        <member name="M:Jenshin.Impack.API.Services.ItemService.UpdateItem(Jenshin.Impack.API.Model.MsShopItem)">
+             <summary>
+             Update Item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /item
+            
+             </remarks>
+             <returns>Success</returns>
+             <response code="200">Returns success if item is successfully updated</response>
+             
+             SOAL NOMOR 4 - Update Item
+        </member>
+        <member name="M:Jenshin.Impack.API.Services.PurchaseService.PurchaseItem(Jenshin.Impack.API.Model.Request.PurchaseRequestDTO,System.String)">
+             <summary>
+             Purchase Item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /purchase
+            
+             </remarks>
+             <returns>Success</returns>
+             <response code="200">Returns success if item is successfully purchased</response>
+             
+             SOAL NOMOR 6 - Purchase Item
+        </member>
+        <member name="M:Jenshin.Impack.API.Services.TopUpService.TopUp(Jenshin.Impack.API.Model.Request.TopUpRequestDTO,System.String)">
+             <summary>
+             Top Up
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /topup
+            
+             </remarks>
+             <returns>Success</returns>
+             <response code="200">Returns success if topup is successful</response>
+             
+             SOAL NOMOR 5 - Top-Up
+        </member>
+        <member name="M:Jenshin.Impack.API.Services.UserService.GetAllUser">
+             <summary>
+             Get All User
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /user
+            
+             </remarks>
+             <returns>A list of all User</returns>
+             <response code="200">Returns a list of User</response>
+             
+             SOAL NOMOR 1 - Get All User
+        </member>
+        <member name="M:Jenshin.Impack.API.Services.UserService.GetSpecificUser(Jenshin.Impack.API.Model.MsUser)">
+             <summary>
+             Get Specific User
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /user
+            
+             </remarks>
+             <returns>A list of all User</returns>
+             <response code="200">Returns a list of User</response>
+             
+             SOAL NOMOR 2 - Get Specified User
+        </member>
+    </members>
+</doc>
