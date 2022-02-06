@@ -116,7 +116,6 @@ namespace DuitKu.API.Helper
         {
             var returnValue = new List<SpecificUserDetail>();
             var userModel = EntityHelper.Get<_UserModel>().ToList();
-            var transactionModel = EntityHelper.Get<_TransactionModel>().ToList();
 
             try
             {
