@@ -10230,14 +10230,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\API\\Duitku_API\\Duitku_API.csproj",
+      "projectUniqueName": "E:\\DuitKuAPI\\Duitku_API\\Duitku_API.csproj",
       "projectName": "Duitku_API",
-      "projectPath": "E:\\API\\Duitku_API\\Duitku_API.csproj",
+      "projectPath": "E:\\DuitKuAPI\\Duitku_API\\Duitku_API.csproj",
       "packagesPath": "C:\\Users\\mital\\.nuget\\packages\\",
-      "outputPath": "E:\\API\\Duitku_API\\obj\\",
+      "outputPath": "E:\\DuitKuAPI\\Duitku_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "E:\\API\\Duitku_API\\NuGet.Config",
+        "E:\\DuitKuAPI\\Duitku_API\\NuGet.Config",
         "C:\\Users\\mital\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

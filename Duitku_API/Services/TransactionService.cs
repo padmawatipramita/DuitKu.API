@@ -30,5 +30,22 @@ namespace Duitku_API.Services
                 return StatusCode(500, new OutputBase(ex));
             }
         }
+
+        [HttpGet]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(TransOutput), StatusCodes.Status200OK)]
+        public IActionResult GetAllTransaction()
+        {
+            try
+            {
+                var objJSON = new TransOutput();
+                objJSON.Data = Helper.TransactionHelper.GetAllTransaction();
+                return new OkObjectResult(objJSON);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new OutputBase(ex));
+            }
+        }
     }
 }

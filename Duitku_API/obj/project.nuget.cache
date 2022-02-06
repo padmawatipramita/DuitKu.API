@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xhG9aO5K65EcsrEcEY6gJGWZoc/03OVswsR82plUny4ZqGcOam2mtBljeFk5UPjxS2rfBYl4FL8pZuZFGeEItA==",
+  "dgSpecHash": "MufHynHQrVyksBbLobHLCF2R0e3RASRuovxmc0VsfyWCGEfLfMEWTBsMMGDg3/kCzwUfsfCZCz+Au5V7rVEKag==",
   "success": true,
-  "projectFilePath": "E:\\API\\Duitku_API\\Duitku_API.csproj",
+  "projectFilePath": "E:\\DuitKuAPI\\Duitku_API\\Duitku_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mital\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\mital\\.nuget\\packages\\automatonymous\\5.1.0\\automatonymous.5.1.0.nupkg.sha512",
