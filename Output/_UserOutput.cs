@@ -47,14 +47,4 @@ namespace DuitKu.API.Output
         public int UserBalance { get; set; }
         public int UserFinalBalance { get; set; }
     }
-
-    public class UserDetailWithId
-    {
-        public int UserID { get; set; }
-        public string UserName { get; set; }
-        public string UserEmail { get; set; }
-        public string Password { get; set; }
-        public int UserBalance { get; set; }
-        public int UserFinalBalance { get; set; }
-    }
 }

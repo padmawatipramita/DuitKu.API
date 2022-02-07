@@ -44,11 +44,22 @@ namespace DuitKu.API.Helper
             return returnValue;
         }
 
+        /*
+        Modified by Ariel Sefrian
+        Date: Senin, 07/02/2022 - 21:31 WIB
+        Purpose: added throw new exception if the email already exists
+        */
+
         public static int AddNewUser(_UserModel data)
         {
             try
             {
                 // add new user
+                foreach (var dataUser in EntityHelper.Get<_UserModel>().Where(x => x.UserEmail.Equals(data.UserEmail)) .ToList())
+                {
+                    throw new Exception("Email already exists!");
+                }
+
                 EntityHelper.Add(new _UserModel()
                 {
                     UserName = data.UserName,
@@ -153,7 +164,7 @@ namespace DuitKu.API.Helper
 
         /*
         Modified by Ariel Sefrian
-        Date: Minggu, 07/02/2022 - 21:11 WIB
+        Date: Senin, 07/02/2022 - 21:11 WIB
         Purpose: added getSpecificUserByEmail
         */
 
