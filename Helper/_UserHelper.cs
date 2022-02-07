@@ -76,6 +76,12 @@ namespace DuitKu.API.Helper
             return 1;
         }
 
+        /*
+        Modified by Ariel Sefrian
+        Date: Senin, 07/02/2022 - 21:41 WIB
+        Purpose: added throw new exception if the email already exists
+        */
+
         public static int ChangePersonalData(_UserModel data)
         {
             var returnValue = new _UserModel();
@@ -98,6 +104,11 @@ namespace DuitKu.API.Helper
                 if (returnValue == null)
                 {
                     throw new Exception("User ID not found!");
+                }
+
+                foreach (var dataUser in EntityHelper.Get<_UserModel>().Where(x => x.UserEmail.Equals(data.UserEmail)).ToList())
+                {
+                    throw new Exception("Email already exists!");
                 }
 
                 EntityHelper.Update(new _UserModel()
