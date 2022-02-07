@@ -79,15 +79,43 @@ namespace Duitku_API.Services
         */
 
         [HttpGet]
-        [Route("specific")]
+        [Route("specificId")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(SpecificUserOutput), StatusCodes.Status200OK)]
-        public IActionResult GetSpecificUser([FromQuery] _UserModel data)
+        public IActionResult GetSpecificUserById([FromQuery] _UserModel data)
         {
             try
             {
                 var objJSON = new SpecificUserOutput();
-                objJSON.Data = DuitKu.API.Helper._UserHelper.GetSpecificUser(data.UserID);
+                objJSON.Data = DuitKu.API.Helper._UserHelper.GetSpecificUserById(data.UserID);
+                return new OkObjectResult(objJSON);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Account not found!"))
+                {
+                    return StatusCode(404, new OutputBase(ex)
+                    {
+                        ResultCode = 404,
+                    });
+                }
+                else
+                {
+                    return StatusCode(500, new OutputBase(ex));
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("specificEmail")]
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(SpecificUserOutput), StatusCodes.Status200OK)]
+        public IActionResult GetSpecificUserByEmail([FromQuery] _UserModel data)
+        {
+            try
+            {
+                var objJSON = new SpecificUserOutput();
+                objJSON.Data = DuitKu.API.Helper._UserHelper.GetSpecificUserByEmail(data.UserEmail);
                 return new OkObjectResult(objJSON);
             }
             catch (Exception ex)

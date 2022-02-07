@@ -111,15 +111,14 @@ namespace DuitKu.API.Helper
         Date: Minggu, 06/02/2022 - 22:41 WIB
         Purpose: fix the getSpecificUser codes in _UserHelper
         */
-
-        public static List<SpecificUserDetail> GetSpecificUser(int? UserIDParam)
+        public static List<SpecificUserDetail> GetSpecificUserById(int? UserIDParam)
         {
             var returnValue = new List<SpecificUserDetail>();
             var userModel = EntityHelper.Get<_UserModel>().ToList();
 
             try
             {
-                // get specific user
+                // get specific user by userID
                 var income = EntityHelper.Get<_TransactionModel>().Where(
                     x => x.UserID == UserIDParam && x.TransactionType == "Income").Select(
                     x => x.Balance).ToList().Sum();
@@ -134,9 +133,61 @@ namespace DuitKu.API.Helper
                    {
                        UserName = um.UserName,
                        UserEmail = um.UserEmail,
+                       Password = um.UserPassword,
                        UserBalance = (int)um.UserBalance,
                        UserFinalBalance = (int)um.UserBalance + (income - expense),
                    }).ToList();
+
+                if (returnValue.Capacity.Equals(0))
+                {
+                    throw new Exception("Account not found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return returnValue;
+        }
+
+        /*
+        Modified by Ariel Sefrian
+        Date: Minggu, 07/02/2022 - 21:11 WIB
+        Purpose: added getSpecificUserByEmail
+        */
+
+        public static List<SpecificUserDetail> GetSpecificUserByEmail(String Email)
+        {
+            var returnValue = new List<SpecificUserDetail>();
+            var userModel = EntityHelper.Get<_UserModel>().ToList();
+            var income = 0;
+            var expense = 0;
+
+            try
+            {
+                // get specific user by email
+                foreach (var dataUser in EntityHelper.Get<_UserModel>().Where(x => x.UserEmail.Equals(Email)) .ToList())
+                {
+                    income = EntityHelper.Get<_TransactionModel>().Where(x =>
+                        x.UserID == dataUser.UserID && x.TransactionType == "Income").Select(x =>
+                        x.Balance).ToList().Sum();
+
+                    expense = EntityHelper.Get<_TransactionModel>().Where(x =>
+                        x.UserID == dataUser.UserID && x.TransactionType == "Expense").Select(x =>
+                        x.Balance).ToList().Sum();
+                }
+
+                returnValue = (
+                from um in userModel.Where(dataRow => dataRow.UserEmail == Email)
+                select new SpecificUserDetail
+                {
+                    UserName = um.UserName,
+                    UserEmail = um.UserEmail,
+                    Password = um.UserPassword,
+                    UserBalance = (int)um.UserBalance,
+                    UserFinalBalance = (int)um.UserBalance + (income - expense),
+                }).ToList();
 
                 if (returnValue.Capacity.Equals(0))
                 {
