@@ -30,3 +30,5 @@ SELECT * FROM trTransaction
 SELECT GETDATE()
 
 SELECT * FROM MsUser
+
+DELETE FROM msUser WHERE UserId = 7

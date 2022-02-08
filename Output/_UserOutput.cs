@@ -32,8 +32,16 @@ namespace DuitKu.API.Output
             this.Data = new List<SpecificUserDetail>();
         }
     }
+
+    /*
+        Modified by Ariel Sefrian
+        Date: Senin, 08/02/2022 - 22:04 WIB
+        Purpose: added UserID in UserDetail and SpecificUserDetail class
+    */
+
     public class UserDetail
     {
+        public int UserID { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public int UserBalance { get; set; }
@@ -41,6 +49,7 @@ namespace DuitKu.API.Output
     }
     public class SpecificUserDetail
     {
+        public int UserID { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public string Password { get; set; }

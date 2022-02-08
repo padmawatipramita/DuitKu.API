@@ -153,6 +153,7 @@ namespace DuitKu.API.Helper
                    from um in userModel.Where(dataRow => dataRow.UserID == UserIDParam)
                    select new SpecificUserDetail
                    {
+                       UserID = um.UserID,
                        UserName = um.UserName,
                        UserEmail = um.UserEmail,
                        Password = um.UserPassword,
@@ -204,6 +205,7 @@ namespace DuitKu.API.Helper
                 from um in userModel.Where(dataRow => dataRow.UserEmail == Email)
                 select new SpecificUserDetail
                 {
+                    UserID = um.UserID,
                     UserName = um.UserName,
                     UserEmail = um.UserEmail,
                     Password = um.UserPassword,
